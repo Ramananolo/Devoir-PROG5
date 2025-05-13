@@ -14,23 +14,23 @@ class ObjetLouable {
 
     reserver(debut: string | Date, duree: number): boolean {
         if (duree < 1) {
-            console.error(`❌ Erreur : la durée minimale est de 1 jour (tenté avec ${duree}).`);
+            console.error(`Erreur : la durée minimale est de 1 jour (tenté avec ${duree}).`);
             return false;
         }
 
         if (!this.estDisponible(debut, duree)) {
-            console.error(`❌ Erreur : "${this.nom}" est déjà réservé à cette période.`);
+            console.error(`Erreur : "${this.nom}" est déjà réservé à cette période.`);
             return false;
         }
 
         const nouvelleReservation = new Reservation(this, debut, duree);
         this.reservations.push(nouvelleReservation);
-        console.log(`✅ Réservation confirmée : "${this.nom}" du ${nouvelleReservation.debut.toDateString()} au ${nouvelleReservation.fin.toDateString()}`);
+        console.log(`Réservation confirmée : "${this.nom}" du ${nouvelleReservation.debut.toDateString()} au ${nouvelleReservation.fin.toDateString()}`);
         return true;
     }
 
     afficherReservations(): void {
-        console.log(`📅 Réservations pour "${this.nom}" :`);
+        console.log(`Réservations pour "${this.nom}" :`);
         if (this.reservations.length === 0) {
             console.log("  Aucune réservation.");
         } else {
